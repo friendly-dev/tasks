@@ -1,14 +1,14 @@
-// В программе задана переменная tasks, которая содержит массив. Элементы данного массива являются объектами с ключами title и completed. Сформируйте новый массив titles, который в качестве значений может хранить свойства title из всех значений массива tasks. Результат выведите в консоль.
-
-tasks = [
-    {title: "Умыться" , completed: true},
-    {title: "Сделать зарядку" , completed: true},
-    {title: "Приготовить завтрак" , completed: false}
-]
+// В  программе задана переменная values, которая хранит массив со строковыми и булевыми значениями. На основе массива values сформируйте новый массив result, который является фрагментом values. Новый массив должен начинаться с первого вхождения булевого значения и заканчиваться последним вхождением булевого значения в массив values. Выведите получившийся массив в консоль.
 
 
-const titles = []
-tasks.map(e => titles.push(Object.keys(e)))
+values = ["Строка",true,"Числа","Объект","Не число", false, "Не объект"]
 
-console.log(titles)
+let result = []
+let index1 = values.indexOf(true)
+let index2 = values.lastIndexOf(false)
+console.log(index1)
+console.log(index2)
+result = values.slice(index1, index2 + 1)
+
+console.log(result)
 
