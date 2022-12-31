@@ -117,3 +117,39 @@ for (key of arrStr) {
     result.push(key)
 }
 console.log(result)
+
+
+// В программе задана переменная words, которая хранит в себе массив строковых значений. Напишите скрипт, который считает количество палиндромов и непалиндромов в массиве words. Результат должен представлять собой массив из двух элементов, где первое значение — количество палиндромов, а второе — непалиндромов.
+
+
+words = ["Казак","Комок","шалаш"]
+countPolindroms = 0
+countNoPolindroms = 0
+result = []
+
+words.forEach(element => {
+    if (element.toLowerCase() == element.toLowerCase().split("").reverse().join("")) {
+        countPolindroms++
+    } else {
+        countNoPolindroms++
+    }
+});
+
+result.push(countPolindroms)
+result.push(countNoPolindroms)
+
+console.log(result)
+
+
+// В программе задана переменная dates, которая хранит в себе строковое значение. В данной строке хранятся значения дат в формате ДД:ММ:ГГГГ, которые разделены пробелами. На основе значения переменной dates сформируйте новый массив, каждый элемент которого содержит одну дату переменной dates, преобразованную в формат ДД/ММ/ГГГГ. Выведите содержимое сформированного массива в консоль.
+
+dates = "23.04.1996 07.10.2002 15.08.1945"
+
+
+let newStr = dates.replaceAll('.', '/')
+
+
+
+let newArr = newStr.split(" ")
+
+console.log(newArr)
