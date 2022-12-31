@@ -60,3 +60,60 @@ if (findSmt) {
 } else {
     console.log(false)
 }
+
+// В программе задана переменная users, которая хранит в себе массив. Элементы данного массива являются объектами. Определите индекс элемента, значение свойства role которого содержит больше одного слова. Результат выведите в консоль разработчика.
+
+users = [
+    {login: "user1", role: "Admin"},
+    {login: "user2", role: "State user"},
+    {login: "user3", role: "Moderator"}
+]
+
+users.forEach(element => {
+    for (let i = 0; i < element.role.length; i++) {
+        if (element.role[i] == ' ') {
+            console.log(users.indexOf(element))
+        }
+    }
+});
+
+
+// В программе задана переменная array, которая хранит в себе двумерный массив. Его элементы — массивы, состоящие из чисел. Отсортируйте массив по количеству элементов вложенного массива по возрастанию. Результат выведите в консоль.
+
+
+array = [[1,2,3],[1,2],[1,2,3,4]]
+
+array.sort((a,b) => a.length - b.length)
+
+console.log(array)
+
+
+
+// В программе задана переменная randValues, которая хранит в себе массив. Его элементы могут являться как строковыми, так и числовыми значениями. Отсортируйте массив следующим образом:
+// В начале массива должны быть все числовые значения по возрастанию
+// В конце все строковые, упорядоченные по алфавиту
+// Результат выведите в консоль.
+
+
+randValues = ["Банан", 3, "Апельсин", 2, "Вишня"]
+let arrNum = [];
+let arrStr = [];
+let result = []
+randValues.forEach(element => {
+    if (typeof element == 'string') {
+        arrStr.push(element)
+    } else if (typeof element == 'number') {
+        arrNum.push(element)
+    }
+});
+
+
+arrNum.sort((a,b) => a - b)
+arrStr.sort()
+for (key of arrNum) {
+    result.push(key)
+}
+for (key of arrStr) {
+    result.push(key)
+}
+console.log(result)

@@ -1,20 +1,28 @@
-// В программе задана переменная values, которая хранит в себе массив. Элементы массива являются числами. Определите, находятся ли в заданном массиве элементы, которые содержат четырехзначные числа. Результат выведите в консоль в виде булевого значения (true, если содержит, и false, если нет).
+// В программе задана переменная randValues, которая хранит в себе массив. Его элементы могут являться как строковыми, так и числовыми значениями. Отсортируйте массив следующим образом:
+// В начале массива должны быть все числовые значения по возрастанию
+// В конце все строковые, упорядоченные по алфавиту
+// Результат выведите в консоль.
 
 
-
-const values = [1, 185, 1111, 980]
-
-
-let findSmt
-newArr = []
-values.forEach(element => {
-    newArr.push(String(element))
+randValues = ["Банан", 3, "Апельсин", 2, "Вишня"]
+let arrNum = [];
+let arrStr = [];
+let result = []
+randValues.forEach(element => {
+    if (typeof element == 'string') {
+        arrStr.push(element)
+    } else if (typeof element == 'number') {
+        arrNum.push(element)
+    }
 });
 
-findSmt = newArr.findIndex(el => el.length == 4)
 
-if (findSmt != -1) {
-    console.log(findSmt)
-} else {
-    console.log('Искомый элемент не был найден')
+arrNum.sort((a,b) => a - b)
+arrStr.sort()
+for (key of arrNum) {
+    result.push(key)
 }
+for (key of arrStr) {
+    result.push(key)
+}
+console.log(result)
