@@ -153,3 +153,51 @@ let newStr = dates.replaceAll('.', '/')
 let newArr = newStr.split(" ")
 
 console.log(newArr)
+
+
+// В программе задана переменная numbers, которая хранит массив из чисел. Определите, какое максимальное количество элементов массива numbers (в порядке, который реализован в массиве) можно сложить, чтобы их итоговая сумма не превышала 50. Результат выведите в консоль.
+
+
+numbers = [23,4,2,4,3,11,3,12,3,23]
+
+// c  помощью цилка for:
+let point = 0;
+for (let i = 0; i < numbers.length; i++) {
+    point += numbers[i]
+    if (point > 50) {
+        console.log(i)
+        break
+    } else if (i == numbers.length - 1) {
+        console.log(i+1)
+    }
+}
+
+
+//В программе объявлена переменная goods, которая хранит объект со свойствами, описывающими товар. Сформируйте массив, который содержит в начале все названия свойств объекта, а потом все их значения. Результат выведите в консоль.
+
+goods = {
+    title: "Самокат", 
+    price: 6000,
+    good_id: 1
+}
+
+let keys = Object.keys(goods)
+let values = Object.values(goods)
+let fullArr = [...keys, ...values]
+console.log(fullArr)
+
+//В программе заданы две переменные article и author, которые содержат объекты. Объект article содержит информацию о статье, а author — об авторе. Сформируйте новый объект, который содержит свойства объектов article и author. Результат выведите в консоль.
+
+
+article = {
+    title: "Загадки дачного огурца", 
+    text: "Огурец не перестает удивлять своими выходками. Хозяйка в недоумении" 
+}
+author = {
+    name: "Ричард М.В.",
+    age: 43
+}
+
+const newArr = Object.assign(article, author)
+console.log(newArr)
+
