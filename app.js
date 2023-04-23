@@ -1,14 +1,7 @@
-//В программе заданы две переменные article и author, которые содержат объекты. Объект article содержит информацию о статье, а author — об авторе. Сформируйте новый объект, который содержит свойства объектов article и author. Результат выведите в консоль.
+let str = 'asdfg'
 
-
-article = {
-    title: "Загадки дачного огурца", 
-    text: "Огурец не перестает удивлять своими выходками. Хозяйка в недоумении" 
-}
-author = {
-    name: "Ричард М.В.",
-    age: 43
+for (let i = 0; i < str.length; i++){
+    console.log(str[i])
 }
 
-const newArr = Object.assign(article, author)
-console.log(newArr)
+asdads``

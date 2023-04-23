@@ -201,3 +201,78 @@ author = {
 const newArr = Object.assign(article, author)
 console.log(newArr)
 
+//В программе задан двумерный массив employee. Удалите у данного массива значение, у которого первый элемент hireDate, и добавьте новое значение ["jobName", "IT PROG"] в конец массива. Результат выведите в консоль.
+
+
+employee  = [
+    ["firstName", "Ivan"], 
+    ["lastName", "Ivanov"],
+    ["hireDate", "21.10.2015"]
+]
+
+let upd = employee.filter(el => el[0] !=="hireDate");
+
+upd.push(["jobName", "IT PROG"]);
+console.log(upd)
+
+//В программе задан двумерный массив array. Создайте и вызовите функцию countString(), которая считает количество значений массива array, у которых второй элемент является строкой. Функция countString() должна выводить в консоль сообщение, как в примере.
+
+
+array = [
+    [ "boolean", true ], 
+    [ "number", 4 ],
+    [ "string", "word" ],
+    [ "string", "word" ],
+    [ "object", {}]
+]
+
+function countString(array) {
+
+let upd = array.filter(el => typeof el[1] == 'string')
+let count = upd.length
+console.log(`Количество строковых элементов в именованном массиве: ${count}`)
+}
+
+countString(array)
+
+
+// В программе объявлены объекты pet_1 и pet_2. Напишите функцию getName() и присвойте ее объектам pet_1 и pet_2 в качестве метода. При вызове метода getName() он должен вернуть имя и возраст питомца через пробел. Решить задачу необходимо с использованием this.
+
+
+pet_1 = { 
+    name: "Шарик", 
+    age: 10 
+  };
+  
+  pet_2 = { 
+    name: "Жучка", 
+    age: 5
+  };
+  
+  function getName() {
+    return [this.name, this.age].join(' ')
+  }
+  pet_1.getName = getName
+  pet_2.getName = getName
+  
+  
+  console.log(pet_1.getName(), pet_2.getName())
+
+
+  // В программе объявлен объект input и функция sayHi(), которая выводит в консоль сообщение из примера. Используя метод присвоения контекста, свяжите контекст объекта input с функцией sayHi() и вызовите функцию sayHi().
+
+
+input = {
+    id: 1,
+    value: "Добрый вечер",
+    firstName: "Григорий",
+    lastName: "Стрельников" 
+}
+
+function sayHi() {
+    console.log(`${this.value}, ${this.firstName} ${this.lastName}!`)
+}
+
+const bindmethod = sayHi.bind(input)
+
+bindmethod()
