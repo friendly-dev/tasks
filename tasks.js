@@ -276,3 +276,10 @@ function sayHi() {
 const bindmethod = sayHi.bind(input)
 
 bindmethod()
+
+
+function firstTask() {
+    // Пишем решение вот тут
+    for (i = 5; i )
+    
+}
