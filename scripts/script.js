@@ -1,18 +1,19 @@
-let numberOfFilms;
-
 const personalMovieDB = {
-    count: numberOfFilms,
+    count: 0,
     movies: {},
     actors: {},
     genres: [],
     privat: false,
     start: function () {
+        personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели?");
         while (
-            numberOfFilms == "" ||
-            numberOfFilms == null ||
-            isNaN(numberOfFilms)
+            personalMovieDB.count == "" ||
+            personalMovieDB.count == null ||
+            isNaN(personalMovieDB.count)
         ) {
-            numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели?");
+            personalMovieDB.count = +prompt(
+                "Сколько фильмов вы уже посмотрели?"
+            );
         }
     },
     remeberMyFilms: function () {
@@ -48,11 +49,11 @@ const personalMovieDB = {
             console.log("Произошла ошибка. Повторите");
         }
     },
-    writeYourGenres: function () {
-        for (let i = 1; i <= 3; i++) {
-            personalMovieDB.genres[i - 1] = prompt(
-                `Ваш любимый жанр под номером ${i}`
-            );
+    toggleVisibleMyDB: function () {
+        if (personalMovieDB.privat) {
+            personalMovieDB.privat == false;
+        } else {
+            personalMovieDB.privat == true;
         }
     },
     showMyDB() {
@@ -62,10 +63,25 @@ const personalMovieDB = {
             console.log("Доступ запрещен");
         }
     },
+    writeYourGenres: function () {
+        for (let i = 1; i <= 3; i++) {
+            let genre = +prompt(`Ваш любимый жанр под номером ${i}`);
+            if (genre === null || genre === "") {
+                console.log("Вы ввели некорректные данные или не ввели вовсе");
+                i--;
+            } else {
+                personalMovieDB.genres[i - 1] = genre;
+            }
+        }
+        personalMovieDB.genres.forEach((item, i) => {
+            console.log(`Любимый жанр ${i+1} - это ${item}`)
+        })
+    },
 };
 
-personalMovieDB.start();
-personalMovieDB.remeberMyFilms();
-personalMovieDB.detectPersonalLevel();
-personalMovieDB.writeYourGenres();
-personalMovieDB.showMyDB();
+// personalMovieDB.start();
+// personalMovieDB.remeberMyFilms();
+// personalMovieDB.detectPersonalLevel();
+// personalMovieDB.writeYourGenres();
+// personalMovieDB.toggleVisibleMyDB();
+// personalMovieDB.showMyDB();
